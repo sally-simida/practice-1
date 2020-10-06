@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基础</title>
+    <meta name="description" content="html 基础啊啊啊">
+    <!--可以添加到 head 部分：title、base、link、meta、script 以及 style-->
+    <!--<base> 标签为页面上的所有链接规定默认地址或默认目标-->
+    <!--可以在 style 元素内规定 HTML 元素在浏览器中呈现的样式-->
+    <!--<meta> 标签提供关于 HTML 文档的元数据。元数据不会显示在页面上，但是对于机器是可读的。
+典型的情况是，meta 元素被用于规定页面的描述、关键词、文档的作者、最后修改时间以及其他元数据。
+<meta> 标签始终位于 head 元素中。-->
+
+</head>
+<body>
+    <h1>这是一个标题</h1>
+    <hr>
+    <!--hr 水平线 分隔内容-->
+    <h2>这还是一个标题</h2>
+    <hr>
+    <h3>这又是一个标题</h3>
+    <!--默认情况下，HTML会自动在块级元素前后添加一个额外的空行
+    比如段落、标题前后-->
+    <!--连续的空行会被显示为一个空行-->
+
+
+    <p>这是一个段落</p>
+    <p><b>实力</b>就是<i>道理</i></p>
+    <!--b与i 是定义粗体和斜体-->
+    <!--strong与em 意味着要呈现的文本是重要的 未来可能支持渲染效果-->
+    <small>我好小</small>
+    <p>人生就是<sup>起起</sup><sub>落落落落落落</sub></p>
+    <p>我是<del>男</del><ins>女</ins>的啊！</p>
+    <!--还有好多好多标签在 HTML文本格式化 中-->
+
+    <br>
+    <a href="https://baike.baidu.com/    ">百度百科</a>
+    <br><br>
+    <a href="#">啥也没有</a>
+    <br><br>
+    <a href="https://pan.baidu.com/" target="_top">百度网盘</a>
+    <!--属性target设置为 _blank 网页会在新的页面打开-->
+    <!--a 标签的 id 可以在当前页面链接到指定位置-->
+    <img src="./风景.jpg" alt="fengjing" style="float: left;" width="20" height="20">
+
+    <br><br>
+    <img src="风景.jpg" alt="风景"  width="400" height="400" border="3" align="center">
+    <!--在HTML4中 align属性已废弃，HTML5已经不再支持该属性 使用CSS代替-->
+    <br><br><br>
+
+
+    <table border="1" cellspacing = "0"  width ="400"  height ="200"> 
+        <tr>
+            <th>1 1</th>  <!--定义表格的标题栏 文字加粗-->
+            <td>1 2</td>   <!--tr 为行  td 为列-->
+            <td>1 3</td>
+        </tr>
+        <tr>
+            <td>2 1</td>
+            <td>2 2</td>
+            <td>2 3</td>
+
+        </tr>
+    </table>
+
+    <br><br>
+    <ul><!--无序列表-->
+        <li>111</li>
+        <li>222</li>
+    </ul>
+    <br>
+    <ol> <!--有序列表-->
+        <li>hahhaha</li>
+        <li>heiheihei</li>
+    </ol>
+    <br>
+    <dl>  <!--自定义列表-->
+        <dt>
+            哈哈哈哈哈
+        </dt>
+        <dd>-表示很开心</dd>
+        <dt>
+            heiheiheiheihei
+        </dt>
+        <dd>-表示有点开心</dd>
+    </dl>
+    <br>
+    <!--区块标签-->
+    <!--块级元素(以新行开始) div h1 p ul table-->
+    <!--内联元素 span b td a img-->
+    
+    <form action="get">
+        姓 名：<input type="text"name="user"><br>
+         密 码：<input type="password" name="password">
+         <input type="submit" value="提交" >
+    </form>
+    <br>
+    <form> 
+        性 别：<br>
+        <input type="radio" name="sex" value="male"> 男<br>
+        <input type="radio" name="sex" value="female"> 女
+    </form>
+    <br>
+    <form>
+        爱 好：<br>
+        <input type="checkbox" name="hobby" value="eat"> 吃饭 <br>
+        <input type="checkbox" name="hobby" value="play"> 玩<br>
+        <input type="checkbox" name="hobby" value="sleep"> 睡觉 <br>
+    </form>
+    <br>
+    <form action="">
+        do you agree with me? 
+        <select name="agree">
+            <option value="haode">好的</option>
+            <option value="yes">可以</option>
+            <option value="ok">我觉得可以</option>
+        </select>
+    </form>
+    写出你的想法：<br>
+    <textarea name="wenben" cols="30" rows="10">
+    就从这里开始吧！
+    </textarea>
+
+
+
+
+</body>
+</html>
