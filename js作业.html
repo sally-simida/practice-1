@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1．随机生成两个小数给变量x.y，然后显示这两个数中的最大值。
+        //（提示：语句“var x=Math.random();”
+        //可为变量生成一个随机小数：另外，使用条件运算符‘'?:")
+
+      /*   var x, y;
+        x = Math.random();
+        y = Math.random();
+        console.log(x > y ? x : y); */
+
+        //2．如果某年的年份值是4的倍数并且不是100的倍数，或者该年份值是400的倍数，那么这一年就是闰年。
+        //请编制一个页面，该页面显示当天是否处于闰年。提示：使用以下语句，可使变量year的值就是当天所属的年份值。
+
+/*         var today = new Date();   //获取当天日期
+        var year = today.getFullYear();   //获取当天年份
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+            console.log('今年是闰年！'); */
+
+        // 1.	编写程序．通过用户输入的年龄判断是哪个年龄段的人
+        //（儿童：年龄＜14；青少年：14<=年龄＜24；青年：24<年龄＜40; 中年：40＜=年龄＜60; 老年：年龄>=60），
+        //并在页面上输出判断结果。
+
+        /*  var age = 0;
+         age = prompt("请输入年龄：");
+         if (age < 14) {
+             document.write("儿童！");
+         }
+         else if (age < 24) {
+             document.write("青少年！");
+         }
+         else if (age < 40) {
+             document.write("青年！");
+         }
+         else if (age < 60) {
+             document.write("中年！");
+         }
+         else document.write("老年！"); */
+
+        // 编写程序，根据用户输入的一个数字(0~6)．
+        //通过警示对话框显示对应的星期几(0: 星期日; 1: 星期一;……6: 星期六;)。
+
+        /*  var number;
+         number = prompt("请输入一个数字：", "0");
+         switch (number) {
+             case '0': alert("星期日"); break;
+             case '1': alert("星期一"); break;
+             case '2': alert("星期二"); break;
+             case '3': alert("星期三"); break;
+             case '4': alert("星期四"); break;
+             case '5': alert("星期五"); break;
+             case '6': alert("星期六"); break;
+         } */
+
+        //编写程序，计算10!(即 1*2*3＊·…10）的结果(10的阶乘)。
+
+        function fac(n) {
+            if (n == 0) {
+                return 1;
+            }
+            else return fac(n - 1) * n;
+        }
+        // alert('10!='+fac(10)); 
+
+        //4.	编写程序，计算 1!+2!+3!+…..＋10！的结果。
+        /*   for (var i = 1; i < 11; i++) {
+              var number = 0;
+              number = number + fac(i);
+          } */
+        // document.write('1!+2!+3!+…..＋10！=' + number);
+
+        /*  5.	在页面上输出如下数字图案。
+        1
+        1 2
+        1 2 3
+        1 2 3 4
+        1 2 3 4 5
+        其中，每行的数字之间有一个空格间隔。
+         */
+
+        /* for (var x = 1; x <= 5; x++) {
+            for (var y = 1; y <= x; y++) {
+                document.write(y);
+            }
+            document.write("<br>");
+        }
+ */
+        /*   6.	在页面上输出如下图案。
+      其中，每行的星号"*"之间有一个空格间隔。 */
+        /*   var a, b;
+          for (a = 1; a <= 5; a++) {
+              document.write("&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;");
+              for (b = 1; b <= 5 - a; b++) {
+                  document.write("&nbsp;");
+              }
+              for (b = 1; b <= a; b++) {
+                  document.write("*&nbsp;");
+              }
+              document.write("<br>");
+          }
+  
+          //	有一个三位数x，被4除余2，被7除余3，被9除余5，请求出这个数。
+          var x;
+          for (x = 100; x <= 999; x++) {
+              if (x % 4 == 2 && x % 7 == 3 && x % 9 == 5)
+                  document.write("x=" + x + "<br>");
+          } */
+
+        /* 8.	求所有满足条件的四位数ABCD，它是13的倍数，
+        且第3位数加上第2位数等于第4位数（即：A=B+C）。
+        （提示：对于四位数的整数x，通过Math.floor(x/1000)可求出第4位的数字，
+        其他位数的提取也类似）  */
+
+        //1.	编写程序，根据用户输入的数值，计算其平方、平方根和自然对数
+
+        /*  var imp;
+         imp = prompt("请输入一个数值：", "如 11");
+         document.write("  x的平方：" + imp * imp);
+         document.write("   x的平方根：" + Math.sqrt(imp));
+         document.write("   x的自然对数：" + Math.log(imp));
+         document.write("<br>"); */
+        //2.	使用Math对象的random()方法编制一个产生0~100之间（含0,100）的随机整数的函数。
+
+        /* var num = Math.floor( Math.random()*101);
+        console.log(num); */
+
+       /*  3.	设计一个页面，在页面上显示信息“现在是XXXX年XX月XX日Xx点XX分XX秒（星期X)，
+        欢迎您的到访！“ */
+
+      /*   var myDate=new Date();
+        function xingqi (q){
+            switch(q){
+                case 0:return '一';break;
+                case 1:return '二';break;
+                case 2:return '三';break;
+                case 3:return '四';break;
+                case 4:return '五';break;
+                case 5:return '六';break;
+                case 6:return '日';break;
+                default: return 0;
+            }
+        }
+        document.write("现在是" + myDate.getFullYear() + "年" + (myDate.getMonth()+1) +
+         "月"+ myDate.getDate() +"日"+ myDate.getHours() +"点"+ myDate.getMinutes() 
+          +"分" +myDate.getSeconds() + "秒（星期 "+ xingqi(myDate.getDay()) +"  )，欢迎您的到访！");
+ */
+        /*  4.	编制一个从字符串中收集数字字符（"0"',"1"，…"9"）
+         的函数CollectDigits(s)，它从字符串s中顺序取出数字，
+         并且合并为一个独立的字符串作为函数的返回值。
+         例如函数调用CollectDigits("1abc23def4"）的返回值是字符串"1234"。 */
+        /* function collectDigits(s) {
+            var si = new String(s);
+            var str = '', ch;
+            for (var i = 0; i <= si.length; i++) {
+                ch = si.charAt(i);
+                if (ch >= '0' && ch <= '9') {
+                    str += ch;
+                }
+            }
+            return str;
+        }
+        var sally;
+        sally='dsad321d';
+        console.log(collectDigits(sally)); */
+
+        /* 5.	编制一个将两个字符串交叉合并的函数Merge(s1,s2)，
+        例如Merge("123","abc"）的返回结果是"1a2b3c"，
+        如果两个字符串的长度不同，那么就将多余部分直接合并到结果字符串的末尾，
+        如Merge("123456",''abc''）的返回结果是”1a2b3c456”。 */
+
+       /*  function merge(s1,s2){
+            var str='';
+            var max=s1.length>s2.length?s1.length:s2.length;
+            for(var i=0;i<max;i++){
+                str+=(s1.length<= i ? '': s1[i]) +(s2.length<= i?'':s2[i]);
+            }
+            return str;
+        }
+        document.write( merge("123456","acb")); */
+
+
+
+      //  6.	设计一个程序，它（使用一个数组）接收用户输入的7门课程的成绩，
+      //  然后在页面上显示其总成绩和平均分，并列出小于60的成绩。
+
+       /* var grade=0,sum=0;
+        var str='';
+      for(var i=0;i<7;i++){
+        grade=prompt("请输入成绩：");
+        sum+=parseInt(grade);
+        if(grade<60){
+            str+=grade + " ";
+        }
+      }
+      document.write("总成绩为：" + sum + '<br>');
+        document.write("平均成绩为："+ (sum/7)+ '<br>');
+        document.write("小于60的成绩有：" + str+ '<br>'); */
+
+
+        /*   7.	斐波纳契（Fibonacci）数列的第一项是1，第二项是1，以后各项都是前两项的和。
+          请按逆序在页面中显示斐波纳契数列前40项的值
+          （即，如果计算出来的数列是1,1,2,3,5,8…，那么显示的顺序是…，8,5,3,2,1,1），
+          并要求每行显示6个数。 */
+
+        /*   function fibonacci(n) {
+              if (n == 1 || n == 0) {
+                  return 1;
+              }
+              else return fibonacci(n - 1) + fibonacci(n - 2);
+          }
+  
+          var arr = new Array(40);
+          for (var i = 0; i <= 40; i++) {
+              arr[i] = fibonacci(i);
+          }
+          arr.reverse();
+          var count = 0;
+          for (var j = 0; j <= 40; j++) {
+              count++;
+              document.write(arr[j] + '&nbsp;&nbsp;&nbsp;&nbsp;');
+              if (count % 6 == 0) {
+                  document.write("<br>");
+              }
+          }
+   */
+
+        /*  8.	设计一个函数DayOfYear(d) ，它接收一个日期参数d，返回一个该日期是所在年份
+         的第几天， 如DayOfYear(2000, 2, 8)的返回值是39.
+         （提示：①定义一个数组months = new Array（31, 28, 31, 30, 31, 30, 31, 31, 30, 31，30, 31）
+         记录每个月少天：②定义一个辅助函数IsLeapYear(y)判定某个年份是否闰年，
+         以确定2月份的天数是28还是29。） */
+
+       /*  function dayOfYear(y, m, d) {
+            var sum = 0;
+            var months = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+            for (var i = 0; i < m - 1; i++) {
+                sum += months[i];
+            }
+            sum = sum + d;
+            function isLeapYear(y) {
+                if (y % 4 == 0 && y % 100 != 0 || y % 400 == 0) {
+                    sum = sum + 1;
+                }
+            }
+            isLeapYear(y);
+            return sum;
+        }
+        console.log(dayOfYear(2020, 3, 1)); */
+
+    </script>
+</body>
+
+</html>
