@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+
+<body>
+    <div id="div1">
+        <ul>
+            <li>11</li>
+            <li class="haha">22</li>
+            <li>33</li>
+        </ul>
+    </div>
+    <input type="text" name="hehe">
+    <ul>
+        <li>44</li>
+        <li class="haha">55</li>
+        <li>66</li>
+    </ul>
+
+    <script>
+        //DOM 选择器(注意标签之间的区别)：
+        //id 
+        var oDiv1=document.getElementById('div1');
+        console.log(oDiv1);
+
+        //class
+        var oLi1=document.getElementsByClassName('haha');
+        console.log(oLi1);
+
+        //tag
+        var oLi2=document.getElementsByTagName('li');
+        console.log(oLi2);
+
+        //name 有些标签会自带name属性，选出所有name属性的标签
+        //对比理解选择器选择出来的是一个集合，并不能选择出哪个标签，需要使用数组的形式来选择
+        var heh=document.getElementsByName('hehe');
+        var hehe=document.getElementsByName('hehe')[0];
+        console.log(heh);
+        console.log(hehe);
+
+        //querySelectorAll(css 选择器)
+        //此选择器会选择出符合条件的所有标签
+        var oLi3=document.querySelectorAll('#div1 li');
+        console.log(oLi3);
+
+        //querySelector(css 选择器)
+        //此选择器只会选择一个标签，从上到下的第一个
+        var oLi4= document.querySelector('#div1 li');
+        console.log(oLi4);
+
+    </script>
+</body>
+
+</html>
