@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM查找兼容性</title>
+</head>
+
+<body>
+    <script>
+        //getElementsByClassName :通过元素的class 获取元素
+        //但是 IE8 以及之前的浏览器不支持
+        //解决方法 封装自己的方法
+
+        /*  @param className 要查找的类的名称
+         @param tagName 限定标签名称
+         @param context 搜索上的下文（搜索范围） */
+
+
+        //仅限于类名不是多类的
+         function getByClassName(className, tagName, context) {
+             var elements = [];
+             //先检测一下当前浏览器是否支持 getElementByClassName，支持就调用，否则调用自己的方法
+             if (document.getElementsByClassName) {
+                 elements = context.lementsByClassName(className);
+             } else {
+                 var arr = context.getElementsByClassName(tagName);
+                 for (var i = 0; i < arr.length; i++) {
+                     if (arr[i].className == className) { //查找元素中class，但是class是关键字，并不能够直接用，所以用classname 代替
+                         elements.push(arr[i]);
+                     }
+                 }
+ 
+             }
+             return elements;
+         } 
+
+
+        //多类能够找到 但是筛选不出名字包含的类名 
+        //现阶段只能完善到此，等学到正则表达式会进一步完善
+        function getByClassName(className, tagName, context) {
+            var elements = [];
+            context=context||document;//当第三个参数不传参的时候，默认为docment
+            //先检测一下当前浏览器是否支持 getElementByClassName，支持就调用，否则调用自己的方法
+            if (document.getElementsByClassName) {
+                elements = context.lementsByClassName(className);
+            } else {
+                var arr = context.getElementsByClassName(tagName);
+                for (var i = 0; i < arr.length; i++) {
+                    //此处需要正则表达式
+                    if (arr[i].className.indexOf(className) != -1) { //查找元素中class，但是class是关键字，并不能够直接用，所以用classname 代替
+                        elements.push(arr[i]);
+                    }
+                }
+
+            }
+            return elements;
+        }
+
+
+    </script>
+</body>
+
+</html>
