@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM遍历</title>
+</head>
+
+<body>
+    <p>
+        元素通常为html ;
+        节点通常是XML;
+        元素节点：1
+        文本节点：3
+        属性节点：2
+    </p>
+    <script>
+
+        //nextElementsSibling IE8 不支持
+        function next(elem) {
+            do {
+                elem = elem.nextSibling;//如果是最后一个元素，elem=null 会报错
+            } while (elem && elem.nodeType != 1);//加上&& 方法不会报错 
+            return elem;
+        }
+
+        //封装first 方法，在所有浏览器中都可以返回第一个元素的孩子节点
+        function first(elem) {
+            elem = elem.firstChild;
+            return elem && elem.nodeType != 1 ? next(elem) : elem;
+        }
+    </script>
+</body>
+
+</html>
