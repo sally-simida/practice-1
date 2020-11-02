@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滑块</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #hua {
+            width: 200px;
+            height: 200px;
+            background: rgb(240, 144, 18);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="hua"></div>
+    <script>
+        var oDiv = document.getElementById('hua');
+        //通过改变定位的值来改变盒子的位置
+        oDiv.onmousedown = function (e) {
+            var left = oDiv.offsetLeft;
+            var top = oDiv.offsetTop;//盒子距离浏览器左边的距离
+            var x = e.clientX;//鼠标距离浏览器左边的距离
+            var y = e.clientY;
+            document.onmousemove = function (e) {
+                oDiv.style.left = e.clientX - x + left + 'px';
+                oDiv.style.top = e.clientY - y + top + 'px';
+
+            }
+        }
+        oDiv.onmouseup = function () {
+            document.onmousemove = null;
+        }
+    </script>
+</body>
+
+</html>
