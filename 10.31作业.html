@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #container {
+            width: 750px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        #img-box img {
+            /* 注意盒子之间的嵌套关系 别写错盒子！！注意是给哪个盒子加特效*/
+            position: relative;
+            display: none;
+        }
+
+        #img-box img:first-child {
+            display: block;
+        }
+
+        #tab {
+            position: absolute;
+            right: 50px;
+            bottom: 25px;
+        }
+
+        #tab li {
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            text-align: center;
+            line-height: 20px;
+            color: #ffffff;
+            float: left;
+            margin-right: 5px;
+        }
+
+        #tab li.active {
+            background: rgba(255, 0, 0, 0.8);
+        }
+
+        .ll {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            line-height: 40px;
+            color: #ffffff;
+            font-size: 50px;
+            position: absolute;
+            top: 50%;
+            margin-top: -25px;
+        }
+
+
+        #next {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="img-box">
+            <img src="imgs/1.jpg" alt="">
+            <img src="imgs/2.jpg" alt="">
+            <img src="imgs/3.jpg" alt="">
+            <img src="imgs/4.jpg" alt="">
+            <img src="imgs/5.jpg" alt="">
+        </div>
+
+        <ul id="tab">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+
+        <span class="ll" id="prev">&lt;</span>
+        <span class="ll" id="next">&gt;</span>
+    </div>
+    <script>
+        oContainer = document.getElementById('container');
+        oImgbox = document.getElementById('img-box');
+        oTab = document.getElementById('tab');
+
+        oImg = oImgbox.getElementsByTagName('img');
+        aLi = oTab.getElementsByTagName('li');
+
+        aPrev = document.getElementById('prev');
+        aNext = document.getElementById('next');
+        var currIndex = 0;
+
+
+        //函数切换图片，代码中重复出现图片的切换，将重复的代码提出来简化代码
+        function changImg() {
+            //清空class
+            for (var i = 0; i < aLi.length; i++) {
+                aLi[i].className = '';
+                oImg[i].style.display = 'none';
+            }
+            //为指定索引的对象添加class(active)
+            aLi[currIndex].className = 'active';
+            oImg[currIndex].style.display = 'block';
+        }
+
+        for (var j = 0; j < aLi.length; j++) {
+            aLi[j].index = j;
+            aLi[j].onclick = function () {
+                currIndex = this.index;
+                changImg();
+            }
+        }
+
+        aNext.onclick = function () {
+            currIndex++;
+            if(currIndex>4){
+                currIndex=0;
+            }
+            changImg();
+        }
+        aPrev.onclick=function(){
+            currIndex--;
+            if(currIndex<0){
+                currIndex=4;
+            }
+            changImg();
+        }
+
+        var timer;
+
+        //函数   控制图片自动播放
+        function go(){
+            timer=setInterval(function(){
+                aNext.onclick();
+            },1000)
+        }go()
+
+
+        //控制鼠标当鼠标进入盒子的时候，图片不自动播放
+        oContainer.onmouseover=function(){
+            clearInterval(timer);
+        }
+        //鼠标移出盒子的时候，图片开始自动播放
+        oContainer.onmouseout=function(){
+            go();
+        }
+
+    </script>
+</body>
+
+</html>
