@@ -1,0 +1,326 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: 14px "HanHei SC", "PingFang SC", "Avenir Next", Avenir, "Helvetica Neue", Helvetica, "Lantinghei SC", "Hiragino Sans GB", "Microsoft YaHei", 微软雅黑, STHeiti, "WenQuanYi Micro Hei", SimSun, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* header开始 */
+
+header {
+    height: 40px;
+    background-color: #333;
+    color: #fff;
+    font-size: 12px;
+}
+
+header li {
+    line-height: 40px;
+    list-style: none;
+}
+
+header li a {
+    color: #fff;
+}
+
+header li a:hover {
+    color: #ddd;
+}
+
+.left-header li {
+    float: left;
+}
+
+.right-header li {
+    float: right;
+}
+
+header span {
+    margin: 0 5.3px;
+}
+
+/* header结束 */
+
+/* nav开始 */
+
+nav img {
+    width: 187px;
+    height: 55px;
+    margin-top: 23px;
+}
+
+.nav-list {
+    float: right;
+    margin-top: 36px;
+}
+
+.nav-list>li {
+    float: left;
+    padding-left: 46px;
+    height: 40px;
+}
+
+.nav-list li a {
+    color: #212121;
+    font-size: 18px;
+}
+
+.nav-list li a:hover {
+    color: #e94400;
+}
+
+.nav-box {
+    position: relative;
+}
+
+.sub-list {
+    position: absolute;
+    left: -10px;
+    top: 40px;
+    width: 150px;
+    height: 102px;
+    border: 1px solid #E5E5E5;
+    background: #fff;
+}
+
+.sub-list ul {
+    margin-top: 10px;
+}
+
+.sub-list li a {
+    font-size: 16px;
+}
+
+.sub-list ul>li {
+    width: 150px;
+    font-size: 12px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.sub-list li:hover {
+    background: #eee;
+}
+
+.sub-list li:hover a {
+    color: #e94400;
+}
+
+.sub-list div {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    left: 72px;
+    top: -5px;
+    border: 1px solid #E5E5E5;
+    transform: rotate(45deg);
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    background: #fff;
+}
+
+.sub-list {
+    display: none;
+}
+
+.nav-box:hover .sub-list {
+    display: block;
+}
+
+/* nav结束 */
+
+/* big-img开始 */
+
+.big-img {
+    margin-top: 19px;
+    background: url(./images/images/banner.jpg)center 0;
+    height: 640px;
+    text-align: center;
+}
+
+.big-img h2 {
+    color: #fff;
+    font-size: 54px;
+    font-weight: 300;
+    padding-top: 193px;
+}
+
+.big-img button {
+    margin-top: 36px;
+    width: 260px;
+    height: 60px;
+    line-height: 60px;
+    color: #fff;
+    background: #F93F2B;
+    font-size: 24px;
+    border: transparent;
+    border-radius: 5px;
+}
+
+/* big-img结束 */
+
+/* content开始 */
+
+.content {
+    width: 1170px;
+    border: 1px solid #E6E6E6;
+    background: #fff;
+    margin-top: -80px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    padding-right: 30px;
+    overflow: hidden;
+    /*所有的li都浮动不占用空间，
+    导致父元素content高度塌陷，
+    需要用溢出隐藏来解决高度塌陷问题*/
+}
+
+.content li {
+    float: left;
+    width: 360px;
+    margin-left: 30px;
+}
+
+.img {
+    background: url(./images/images/bg1.png)center center no-repeat;
+    background-size: 360px 180px;
+    height: 136px;
+    padding-top: 44px;
+    /*加了 padding-top: 44px;之后，
+    最开始以为是上边距合并但实际不是，
+    实际上是背景图片等比缩放，img盒子并没有往下串
+    只是图片缩小没有撑满整个盒子
+    */
+    /*加内边距会使盒子撑大，记得减小长度和宽度*/
+}
+
+.content h3 {
+    color: #fff;
+    font-size: 33px;
+    font-weight: 400;
+    margin-left: 30px;
+    margin-bottom: 16px;
+}
+
+.behind-content {
+    padding: 10px 30px;
+    color: #666;
+    font-size: 16px;
+}
+
+.behind-content div {
+    margin-top: 20px;
+}
+
+.behind-content div span {
+    color: #EA5600;
+}
+
+.behind-content div:last-child {
+    color: #FD3911;
+    border-top: 1px solid #ECECEC;
+    font-size: 16px;
+    height: 62px;
+    line-height: 62px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.blue .img {
+    background: url(./images/images/bg2.png)center center no-repeat;
+    background-size: 360px 180px;
+    height: 136px;
+    padding-top: 44px;
+}
+
+.blue div span {
+    color: #4481C8;
+}
+
+/* content结束 */
+
+/* footer开始 */
+
+.footer {
+height: 209px;
+}
+
+.footer-left {
+    width: 476px;
+    margin-top: 109px;
+    display: inline-block;
+}
+
+.footer-left img {
+    float: left;
+    width: 46px;
+    height: 46px;
+    margin-right: 14.5px;
+}
+
+.footer-left ul {
+    position: relative;
+    top: 2px;
+}
+
+.footer-left li span {
+    display: inline-block;
+    margin: 0 6.6px;
+    font-weight: 100;
+    color: #575757;
+}
+
+.footer-left li {
+    float: left;
+}
+
+.footer-left li a {
+    color: #575757;
+    font-size: 14px;
+    height: 14px;
+    line-height: 14px;
+}
+
+.footer-left .small li {
+    font-size: 12px;
+    color: #6D6D6D;
+    height: 14px;
+    line-height: 14px;
+    margin-top: 10px;
+}
+
+.footer-right {
+    float: right;
+    margin-top: 90px;
+}
+
+.footer-right div {
+    color: #E84519;
+    font-size: 26px;
+}
+
+.footer-right div:first-child {
+    color: #575757;
+    font-size: 14px;
+}
+.footer-right div:last-child{
+    color: #575757;
+    font-size: 12px;
+} 
+
+/* footer结束 */
