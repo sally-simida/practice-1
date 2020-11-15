@@ -1,0 +1,64 @@
+.modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.modal .modal-login {
+    width: 300px;
+    height: 400px;
+    background: rgba(168, 160, 147, 1);
+    border: 1px solid #cccccc;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+}
+
+.modal-login .modal-header {
+    position: relative;
+    border-bottom: 1px solid #cccccc;
+    overflow: hidden;
+}
+
+.modal-login .modal-header h4 {
+    float: left;
+    margin: 10px 20px;
+}
+
+.modal-login .modal-header div {
+    cursor: pointer;
+    float: right;
+    margin: 10px 20px;
+}
+
+.modal .modal-body {
+    margin: 10px 20px;
+}
+
+.modal .modal-footer {
+    position: absolute;
+    padding: 10px;
+    box-sizing: border-box;
+    bottom: 0;
+    border-top: 1px solid #cccccc;
+    width: 100%;
+}
+
+.modal .modal-footer button {
+    float: right;
+    border: 1px solid transparent;
+    /*自定义边框*/
+    outline: none;
+    /*消除默认点击蓝色边框效果*/
+    color: #cccccc;
+    border-radius: 10px;
+    background: rgba(71, 66, 66, 0.904);
+    width: 60px;
+    height: 30px;
+}

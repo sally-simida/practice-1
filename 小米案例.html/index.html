@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>小米金融</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./CSS/modal.css">
+    <link rel="stylesheet" href="./CSS/cssreset.css">
+    <link rel="stylesheet" href="./CSS/index.css">
 </head>
 
 <body>
@@ -22,7 +24,7 @@
             </ul>
             <ul class="right-header">
                 <li><a href="">注册</a></li>
-                <li><a href="">登录</a><span>|</span></li>
+                <li><a href="" id="login">登录</a><span>|</span></li>
             </ul>
         </div>
     </header>
@@ -127,6 +129,26 @@
             <div>周一至周日 9:00-18:00(仅收市话费）</div>
         </div>
     </div>
+
+    <!--弹窗-->
+    <div class="modal" id="modal-box">
+        <div class="modal-login">
+            <div class="modal-header">
+                <h4>header</h4>
+                <div class="modal-close">[X]</div>
+            </div>
+            <div class="modal-body">
+                body
+            </div>
+            <div class="modal-footer">
+                <button class="ok">确 定</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./JS/jsfunctions.js"></script>
+    <script src="./JS/modal.js"></script>
+    <script src="./JS/index.js"></script>
 </body>
 
 </html>
