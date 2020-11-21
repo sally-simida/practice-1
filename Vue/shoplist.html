@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品列表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #app {
+            margin: 0 auto;
+            margin-top: 80px;
+            width: 400px;
+            text-align: center;
+        }
+
+        #app ul {
+            margin: 10px 0;
+            border-bottom: 1px solid #cccccc;
+        }
+
+        #app ul li {
+            background: pink;
+            height: 40px;
+            line-height: 40px;
+            margin-bottom: 10px;
+            padding: 0 10px;
+        }
+
+        #app ul li span:first-child {
+            float: left;
+        }
+
+        #app ul li span:last-child {
+            float: right;
+        }
+
+        #app ul li.active {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2>商品列表</h2>
+        <ul>
+            <li v-for="(item, index) in list" :key="index" @click='sel(item)' v-bind:class="{active:item.isActive}">
+                <span>{{item.name}}</span>
+                <span>{{item.price}}</span>
+            </li>
+        </ul>
+        <p>总价：{{total}}</p>
+
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                list: [
+                    {
+                        name: '衬衫',
+                        price: 999,
+                        isActive: false
+                    }, {
+                        name: '裙子',
+                        price: 1450,
+                        isActive: false
+                    }, {
+                        name: '电脑',
+                        price: 15800,
+                        isActive: false
+                    }, {
+                        name: '裤子',
+                        price: 850,
+                        isActive: false
+                    },
+                ]
+            },
+            //只有在computed函数所依赖的数据变化的时候才会被执行
+            computed: {
+               total:function(){
+                var court=0;
+                    for(var i=0;i<this.list.length;i++){
+                        if(this.list[i].isActive){
+                            court+=this.list[i].price;
+                        }
+                    }
+                    return court;
+               }
+            },
+
+            //methods中某个函数执行导致页面重新渲染，那么页面渲染相关的函数会重新执行
+            methods: {
+                sel(obj) {
+                    obj.isActive = !obj.isActive;
+                    console.log('methods');
+
+                },
+               /*  sum () {
+                    var court=0;
+                    for(var i=0;i<this.list.length;i++){
+                        if(this.list[i].isActive){
+                            court+=this.list[i].price;
+                        }
+                    }
+                    return court;
+                } */
+            },
+        })
+    </script>
+</body>
+
+</html>
