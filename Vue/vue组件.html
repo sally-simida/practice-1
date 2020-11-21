@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <template id="tpl1">
+        <div>
+            <p>{{msg}}</p>
+            <button @click='add2'>son + </button>
+        </div>
+    </template>
+
+    <div id="app">
+        <p>{{num}}</p>
+        <button @click='add1'>father +</button>
+        <tpl :msg='msg' @son='add1'></tpl>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈哈哈哈',
+                num: 0
+            },
+            methods: {
+                add1() {
+                    this.num++;
+                }
+            },
+            components: {
+                'tpl': {
+                    template: '#tpl1',
+                    props: ['msg',],
+                    methods: {
+                        add2() {
+                            this.$emit('son');
+                        },
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

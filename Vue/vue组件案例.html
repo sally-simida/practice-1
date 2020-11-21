@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            position: absolute;
+            width: 400px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #cccccc;
+            border-radius: 7px;
+            background: rgb(235, 195, 63);
+        }
+
+        .container header {
+            height: 40px;
+            line-height: 40px;
+            padding: 5px 10px;
+            border-bottom: 1px solid #cccccc;
+        }
+
+        .container header span {
+            float: right;
+            padding: 0 5px;
+            cursor: pointer;
+        }
+
+        .container main {
+            padding: 10px;
+            border-bottom: 1px solid #cccccc;
+        }
+
+        .container footer {
+            padding: 7px 10px;
+        }
+
+        button {
+            width: 50px;
+            height: 30px;
+            background: rgb(241, 167, 29);
+        }
+    </style>
+</head>
+
+<body>
+    <template id="tpl">
+        <div class="container">
+            <header>{{title}}
+                <span @click='close'>[X]</span>
+            </header>
+            <main>
+                <slot></slot>
+            </main>
+            <footer>
+                <button @click='close'>{{title}}</button>
+            </footer>
+        </div>
+    </template>
+
+    <div id="app">
+        <button @click='login1'>登录</button>
+        <button @click='register'>注册</button>
+
+        <login title="登录" v-show="isLogin" @close='hide'>
+            <div>
+                <table>用户名：</table>
+                <input type="text">
+            </div>
+            <div>
+                <table>密码：</table>
+                <input type="password">
+            </div>
+        </login>
+
+        <login title="注册" v-show="isRegister" @close='hide'>
+            <div>
+                <table>用户名：</table>
+                <input type="text">
+            </div>
+            <div>
+                <table>密码：</table>
+                <input type="password">
+            </div>
+            <div>
+                <table>确认密码：</table>
+                <input type="password">
+            </div>
+        </login>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                isLogin: false,
+                isRegister: false,
+            },
+            methods: {
+                login1() {
+                    this.isLogin = true;
+                    this.isRegister = false;
+                },
+                register() {
+                    this.isLogin = false;
+                    this.isRegister = true;
+                },
+                hide() {
+                    this.isLogin = false;
+                    this.isRegister = false;
+                }
+            },
+            components: {
+                'Login': {
+                    template: '#tpl',
+                    props: ['title',],
+                    methods: {
+                        close() {
+                            this.$emit('close');
+                        }
+                    },
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
