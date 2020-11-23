@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #app {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #ccc;
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000;
+            border-radius: 10px;
+        }
+
+        #app input {
+            margin: 10px;
+            width: 200px;
+            height: 20px;
+            margin-left: 40px;
+        }
+
+        #app ul li {
+            height: 20px;
+            margin: 5px 10px;
+            line-height: 40px;
+        }
+
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="msg">
+        <button @click='add'>添加</button>
+        <button @click='search'>搜索</button>
+
+        <ul>
+            <li v-for="(item, index) in list" :key="index" @click='change(item)' :class='{active:item.isActive}'>
+                {{item.context}}
+                <button @click.stop='clear(index)'>删除</button>
+            </li>
+        </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        vm = new Vue({
+            el: '#app',
+            data: {
+                list: [{
+                    context: '1111',
+                    isActive: false,
+                }],
+                msg: '',
+            },
+            methods: {
+                add() {
+                    this.list.push({
+                        context: this.msg,
+                        isActive: false
+                    });
+                    this.msg = '';
+                },
+                clear(index) {
+                    this.list.splice(index, 1);
+                },
+                change(obj) {
+                    obj.isActive = !obj.isActive;
+                },
+                search() {
+                    for (var i = 0; i < this.list.length; i++) {
+                        if (this.list[i].context.includes(this.msg)){
+
+                        }else{
+                            this.clear();
+                        }
+}
+                }
+            },
+
+        }) 
+    </script>
+</body>
+
+</html>
