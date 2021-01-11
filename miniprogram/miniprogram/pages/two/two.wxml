@@ -1,0 +1,27 @@
+<view class="wrapper">
+  <input value="{{val}}" bindinput=getInpval" type="text" />
+  <button bindtap="add" type="primary" size="mini">添加</button>
+</view>
+<view class="wrapper">
+  查看已完成事项
+  <switch bindtap="change"></switch>
+</view>
+<checkbox-group bindchange="manyChange">
+  <ul>
+    <li class="wrapper">
+      <text>序号</text>
+      <text>待办事项</text>
+      <text>操作</text>
+    </li>
+    <li class="wrapper" wx:for="{{list}}" wx:key="_id">
+      <text>{{index  +1}}</text>
+      <checkbox value="{{item._id}}">
+        </checkbox>
+        <text>{{item.title}}</text>
+        <button wx:if="{{isDelete}}" bindtap="finish" data-id="{{item._id}}" type="primary" size="mini">完成</button>
+        <button wx:else bindtap="delete" data-id="{{item._id}}" type="warn" size="mini">删除</button>
+    </li>
+  </ul>
+</checkbox-group>
+<button bindtap="batchHandle" data-type="finish" class="btn" type="primary">批量完成</button>
+<button bindtap="batchHandle" data-type="delete" class="btn" type="warn">批量删除</button>

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "happy":"../../components/happy/happy"
+  }
+}

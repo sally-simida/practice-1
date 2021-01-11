@@ -1,0 +1,17 @@
+button{
+  padding: 0px;
+  margin: 0;
+}
+input {
+  border: 1px solid #ccc;
+  height: 30px;
+  width: 200px;
+}
+.wrapper{
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.btn{
+  margin: 10px;
+}
