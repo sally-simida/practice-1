@@ -1,0 +1,58 @@
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+  background: url('../images/bg-feather.jpeg');
+  }
+  
+  header {
+    display: flex;
+    height: 50px;
+    margin-top: -20px;
+    background: rgba(148, 144, 144, 0.356);;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .left {
+    padding: 0 20px;
+  }
+  .right {
+    padding: 0 20px;
+  }
+  .container {
+    width: 800px;
+    height: 500px;
+    border-radius: 100px;
+    margin: 50px auto;
+    text-align: center;
+    background: url('../images/bg-white.jpeg');
+  }
+  .container h1{
+    padding: 20px 0;
+  }
+  .box{
+    position: relative;
+  }
+  .box span{
+    position: relative;
+    bottom: 203px;
+  }
+  .title{
+    width: 500px;
+    height: 20px;
+  }
+  .content{
+    width: 500px;
+    height: 210px;
+  }
+  .container button{
+      margin: 40px 0;
+      width: 150px;
+      height: 35px;
+      background: url('../images/bg-black.jpg');
+      border: 1px solid transparent;
+      color: #fff;
+      border-radius: 5px;
+  }
+  
