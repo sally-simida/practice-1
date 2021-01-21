@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <style>
+  .container {
+  width: 800px;
+  height: 100%;
+  margin: 0 auto;
+  background: url('../images/bg-white.jpeg') no-repeat;
+  background-size: cover;
+}
+.container h1,
+div , span{
+  padding: 10px 0;
+  font-size: 18px;
+}
+.time{
+  font-size: 16px;
+  color: rgb(141, 138, 138);
+  padding: 10px 10px;
+}
+.item{
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  margin: 10px 0;
+}
+
+  </style>
+  </head>
+<body>
+
+    <div class="container">
+      <h2 style="margin-left: 20px;">文章详情</h2>
+       <div style="border: 1px solid #ccc;">
+        <h3>标题：<%=details.title %></h3>
+        <div>内容：<%=details.content %></div>
+        <%
+        let postTimeStr = details.post_time.getFullYear() + "." + (details.post_time.getMonth() + 1) + "." + details.post_time.getDate();
+        %>
+        <div class="time">文章发表于：<%=postTimeStr %></div>
+       </div>
+       <h3>评论：</h3>
+        <%
+        for(let i=0;i<details.comments.length ; i++){
+          let comm=details.comments[i];
+        %>
+        <div class="item">
+          <span> <%=comm.username %> ：</span>
+          <span> <%=comm.comm_content %> </span>
+          <%
+          let postTimeStr = comm.comm_post_time.getFullYear() + "." + (comm.comm_post_time.getMonth() + 1) + "." + comm.comm_post_time.getDate();
+          %>
+          <div class="time">评论于 <%=postTimeStr %></div>
+        </div>
+        <%
+      }  
+        %>
+      </div>
+</body>
+</html>
